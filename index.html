@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="JPantoja Fotografía - Portafolio fotográfico">
+<title>JPantoja Fotografía</title>
+<style>
+:root{--verde:#173f35;--verde2:#24584a;--crema:#f7f5ef;--texto:#20201e}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--crema);color:var(--texto)}
+header{position:fixed;z-index:1000;top:0;left:0;right:0;background:rgba(23,63,53,.97);color:#fff;box-shadow:0 2px 15px rgba(0,0,0,.15)}
+.barra{max-width:1150px;margin:auto;height:68px;padding:0 22px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:700;font-size:21px;letter-spacing:.3px}.menu-btn{display:none;border:0;background:transparent;color:#fff;font-size:30px;line-height:1;cursor:pointer}
+nav{display:flex;align-items:center;gap:26px}nav a{color:#fff;text-decoration:none;font-size:14px;padding:8px 0}
+.hero{min-height:100vh;padding:100px 22px 60px;display:grid;place-items:center;text-align:center;color:#fff;background:linear-gradient(rgba(0,0,0,.38),rgba(0,0,0,.38)),url('https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1800&q=85') center/cover no-repeat}.hero h1{font-size:clamp(44px,9vw,88px);margin:0 0 10px}.hero p{font-size:18px;margin:0 0 28px}.btn{display:inline-block;padding:13px 25px;border:1px solid #fff;color:#fff;text-decoration:none;border-radius:2px}
+section{max-width:1150px;margin:auto;padding:90px 22px}h2{margin:0 0 34px;color:var(--verde);font-size:35px}.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.gallery img{width:100%;height:290px;object-fit:cover;display:block}
+.about{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:center}.about p{font-size:17px;line-height:1.8;color:#555}.about-card{background:#fff;padding:34px;box-shadow:0 8px 30px rgba(0,0,0,.06)}
+.contact{max-width:none;background:var(--verde);color:#fff}.contact-inner{max-width:1150px;margin:auto;padding:90px 22px}.contact h2{color:#fff}.contact a{color:#fff}.contact p{line-height:1.8}
+footer{background:#102d26;color:#fff;text-align:center;padding:25px;font-size:13px}
+@media(max-width:700px){.menu-btn{display:block}nav{display:none;position:absolute;top:68px;left:0;right:0;background:var(--verde);padding:8px 22px 20px;flex-direction:column;align-items:stretch;gap:0}nav.open{display:flex}nav a{padding:15px 0;border-bottom:1px solid rgba(255,255,255,.12)}.gallery{grid-template-columns:1fr 1fr}.gallery img{height:180px}.about{grid-template-columns:1fr}.hero{min-height:92vh}}
+</style>
+</head>
+<body>
+<header><div class="barra"><div class="logo">JPantoja Fotografía</div><button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false">☰</button><nav id="menu"><a href="#inicio">Inicio</a><a href="#portafolio">Portafolio</a><a href="#sobre-mi">Sobre mí</a><a href="#contacto">Contacto</a></nav></div></header>
+<main>
+<section class="hero" id="inicio"><div><h1>JPantoja</h1><p>Fotografía para momentos que merecen quedarse.</p><a class="btn" href="#portafolio">Ver portafolio</a></div></section>
+<section id="portafolio"><h2>Portafolio</h2><div class="gallery">
+<img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=85" alt="Fotografía de evento">
+<img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=85" alt="Fotografía de boda">
+<img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=900&q=85" alt="Fotografía de evento">
+<img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=85" alt="Pareja en sesión">
+<img src="https://images.unsplash.com/photo-1507504031003-b417219a0fde?auto=format&fit=crop&w=900&q=85" alt="Celebración">
+<img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=900&q=85" alt="Recepción">
+</div></section>
+<section id="sobre-mi"><div class="about"><div><h2>Sobre mí</h2><p>Soy JPantoja, fotógrafo enfocado en capturar momentos auténticos y convertirlos en recuerdos que puedas volver a vivir. Trabajo con una mirada cercana, cuidando cada detalle de tu evento.</p><p>Mi objetivo es que tus fotografías se sientan naturales, elegantes y llenas de emoción.</p></div><div class="about-card"><strong>Servicios</strong><p>• Cobertura de eventos<br>• Sesiones fotográficas<br>• Fotografía social<br>• Entrega de álbum digitalizado</p></div></div></section>
+<section class="contact" id="contacto"><div class="contact-inner"><h2>Contacto</h2><p>¿Tienes un evento o proyecto en mente? Escríbeme para revisar disponibilidad y conocer los paquetes disponibles.</p><p><a href="https://www.instagram.com/" target="_blank" rel="noopener">Instagram</a></p></div></section>
+</main>
+<footer>© <span id="year"></span> JPantoja Fotografía. Todos los derechos reservados.</footer>
+<script>
+const btn=document.getElementById('menuBtn'),menu=document.getElementById('menu');
+function cerrarMenu(){menu.classList.remove('open');btn.setAttribute('aria-expanded','false');}
+btn.addEventListener('click',()=>{const abierto=menu.classList.toggle('open');btn.setAttribute('aria-expanded',String(abierto));});
+document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click',()=>cerrarMenu()));
+document.addEventListener('click',e=>{if(window.innerWidth<=700&&!menu.contains(e.target)&&!btn.contains(e.target))cerrarMenu();});
+window.addEventListener('resize',()=>{if(window.innerWidth>700)cerrarMenu();});
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
